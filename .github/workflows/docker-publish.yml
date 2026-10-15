@@ -12,7 +12,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout del codigo
+      - name: Descargar codigo del repositorio
         uses: actions/checkout@v4
 
       - name: Iniciar sesion en Docker Hub
@@ -24,12 +24,12 @@ jobs:
       - name: Configurar Docker Buildx
         uses: docker/setup-buildx-action@v3
 
-      - name: Construir y subir imagen a Docker Hub
+      - name: Construir y publicar imagen Docker
         uses: docker/build-push-action@v6
         with:
           context: .
           file: ./Dockerfile
           push: true
           tags: |
-            ${{ secrets.rodrickyañez }}/mi-plana-web:latest
-            ${{ secrets.rodrickyañez }}/mi-plana-web:${{ github.sha }}
+            ${{ secrets.DOCKER_USERNAME }}/mi-plana-web:latest
+            ${{ secrets.DOCKER_USERNAME }}/mi-plana-web:${{ github.sha }}
