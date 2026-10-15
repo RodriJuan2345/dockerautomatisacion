@@ -31,5 +31,5 @@ jobs:
           file: ./Dockerfile
           push: true
           tags: |
-            ${{ secrets.DOCKER_USERNAME }}/mi-plana-web:latest
-            ${{ secrets.DOCKER_USERNAME }}/mi-plana-web:${{ github.sha }}
+            ${{ secrets.rodrickyañez }}/mi-plana-web:latest
+            ${{ secrets.rodrickyañez }}/mi-plana-web:${{ github.sha }}
